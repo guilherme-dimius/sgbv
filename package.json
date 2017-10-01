@@ -1,0 +1,41 @@
+{
+  "name": "sgbv",
+  "version": "1.0.0",
+  "description": "Sistema de gerenciamento de bibliotecas de voz.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guilherme-dimius/sgbv.git"
+  },
+  "keywords": [
+    "biblioteca",
+    "voz"
+  ],
+  "author": "Guilherme Malaquias Ferreira <guilhermemalaquiasf@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/guilherme-dimius/sgbv/issues"
+  },
+  "homepage": "https://github.com/guilherme-dimius/sgbv#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "bootstrap": "^3.3.7",
+    "consign": "^0.1.6",
+    "cors": "^2.8.4",
+    "ejs": "^2.5.7",
+    "es6-shim": "^0.35.3",
+    "express": "^4.16.1",
+    "express-load": "^1.1.16",
+    "method-override": "^2.3.10",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.14",
+    "reflect-metadata": "^0.1.10",
+    "rxjs": "^5.4.3",
+    "systemjs": "^0.20.19",
+    "typescript": "^2.5.3",
+    "zone.js": "^0.8.18"
+  }
+}
