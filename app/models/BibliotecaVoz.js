@@ -1,26 +1,22 @@
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
 module.exports = function() 
 {
-    const schema = mongoose.Schema({
-        _id : 
-        {
-            type: Object,
-            required: true
-        },
+    var schema = mongoose.Schema({
         nome : 
         {
             type: String,
-            required: true
+            required: true,
+            index: { unique: true }
         },
         qtdGravacoes : 
         {
             type: Number,
             required: true
         },
-        listaRotulos :
+        rotulos :
         {
-            type: Object,
+            type: [String],
             required: true
         },
         observacoes : 
@@ -31,7 +27,7 @@ module.exports = function()
         {
             type: String,
             required: true
-        }
+        }   
         });
     return mongoose.model('BibliotecaVoz', schema);
 }

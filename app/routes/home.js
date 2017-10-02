@@ -1,10 +1,11 @@
-//const Controller = require('../controllers/home');
+//var Controller = require('../controllers/home');
 
-//const controller = Controller();
+//var controller = Controller();
 
-module.exports = function(app) {
+module.exports = function(app) 
+{
+   var controller = app.controllers.home;
 
-   const controller = app.controllers.home;
-
-   app.get('/', controller.index);
+   app.route('/')
+   .get(controller.index);
 }

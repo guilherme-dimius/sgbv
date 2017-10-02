@@ -1,14 +1,14 @@
-const http = require('http');
-const express = require('./config/express');
-
-const db = require('./config/database');
+var http = require('http');
+var express = require('./config/express');
+var db = require('./config/database');
 
 db('mongodb://localhost/sgbv');
 
-const app = express();
+var app = express();
 
 http.createServer(app).listen(app.get('port'), app.get('ip'),
-   function() {
+   function() 
+   {
       console.log('Express Server ouvindo na porta ' + 
          app.get('port'));
    }

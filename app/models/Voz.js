@@ -1,17 +1,18 @@
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
 module.exports = function() 
 {
-    const schema = mongoose.Schema({
-        _id : 
+    var schema = mongoose.Schema({
+        rotulo : 
         {
-            type: Object,
-            required: true
+            type: String,
+            required: true,
         },
         nomeArquivo : 
         {
             type: String,
-            required: true
+            required: true,
+            index: { unique: true }
         },
     });
     return mongoose.model('Voz', schema);

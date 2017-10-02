@@ -1,34 +1,31 @@
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
 module.exports = function() 
 {
-    const schema = mongoose.Schema({
-        _id : 
+    var schema = mongoose.Schema({
+        locutor : 
         {
-            type: Object,
+            type: [mongoose.Schema.ObjectId],
+            ref: 'Locutor',
             required: true
         },
-        idLocutor : 
+        bibliotecaVoz : 
         {
-            type: Object,
+            type: [mongoose.Schema.ObjectId],
+            ref: 'BibliotecaVoz',
             required: true
         },
-        idBiblioteca : 
+        gravacoesVoz :
         {
-            type: Object,
-            required: true
-        },
-        idListaVoz : 
-        {
-            type: Object,
+            type: [mongoose.Schema.ObjectId],
+            ref: 'Voz',
             required: true
         },
         dirGravacao : 
         {
-            type: Object,
+            type: String,
             required: true
-        },
-        
+        },        
     });
-    return mongoose.model('BibliotecaVoz', schema);
+    return mongoose.model('GravacaoVoz', schema);
 }

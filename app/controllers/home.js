@@ -1,6 +1,7 @@
+
 module.exports = function() 
 {
-   const controller = {}; // Objeto vazio
+   var controller = {}; // Objeto vazio
 
    controller.index = function(req, res) 
    {
@@ -11,20 +12,6 @@ module.exports = function()
           sigla: 'SGBV'
       });
    }
-/*
-   controller.ajuda = function(req, res) {
-      // Renderização de view sem constiáveis
-      res.render('ajuda');
-   }
-
-   controller.login = function(req, res) {
-      // Renderização de view com mais de uma constiável
-      res.render('login', {
-         nome: 'GerenTG',
-         mensagem: 'Informe seus dados para autenticação'
-      });
-   }
-*/
 
    return controller;
 
