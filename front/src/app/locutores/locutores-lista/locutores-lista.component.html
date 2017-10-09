@@ -1,0 +1,24 @@
+<h3>{{title}}</h3>
+
+<table class="table table-striped">
+  <tr>
+    <th>E-mail</th>
+    <th>Nome locutor</th>
+    <th>Cidade</th>
+    <th>Estado</th>
+    <th>Sotaque</th>
+    <th>Gênero</th>
+    <th>Problema de fala</th>
+    <th>Idade</th>
+  </tr>
+  <tr *ngFor="let trabalho of trabalhos">
+    <td>{{trabalho.email}}</td>
+    <td>{{trabalho.nome}}</td>
+    <td>{{trabalho.cidade}}</td>
+    <td>{{trabalho.estado}}</td>
+    <td>{{trabalho.sotaque}}</td>
+    <td>{{trabalho.genero}}</td>
+    <td>{{trabalho.problemaFala}}</td>
+    <td>{{trabalho.idade}}</td>
+  </tr>
+</table>
