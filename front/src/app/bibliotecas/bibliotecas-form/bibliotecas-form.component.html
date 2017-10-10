@@ -1,0 +1,34 @@
+<h2>{{title}}</h2>
+
+<form>
+	
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome"
+    [(ngModel)]="model.nome" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <label for="rotulos">Rótulos</label>
+    <input type="text" id="rotulos" name="rotulos"
+    [(ngModel)]="model.rotulos" class="form-control" />
+  </div>
+  
+  <div class="form-group">
+    <label for="cidade">Observações</label>
+    <textarea id="cidade" name="cidade" 
+    [(ngModel)]="model.observacoes" class="form-control">
+    </textarea>
+  </div>
+  
+  <div class="form-group">
+    <label for="data">Data</label>
+    <input type="datetime" id="data" name="data"
+    [(ngModel)]="model.data" class="form-control" />
+  </div>
+  
+  <div class="form-group">
+    <input class="btn btn-primary" type="submit" value="Enviar" />
+  </div>
+
+</form>

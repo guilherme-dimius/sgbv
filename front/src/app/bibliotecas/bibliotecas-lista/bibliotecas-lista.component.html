@@ -1,0 +1,16 @@
+<h3>{{title}}</h3>
+
+<table class="table table-striped">
+  <tr>
+    <th>Nome</th>
+    <th>Rótulos</th>
+    <th>Observações</th>
+    <th>Data</th>
+  </tr>
+  <tr *ngFor="let bib of bibliotecas">
+    <td>{{bib.nome}}</td>
+    <td>{{bib.rotulos}}</td>
+    <td>{{bib.observacoes}}</td>
+    <td>{{bib.data}}</td>
+  </tr>
+</table>

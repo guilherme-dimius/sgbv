@@ -2,17 +2,13 @@ var mongoose = require('mongoose');
 
 module.exports = function() 
 {
-    var schema = mongoose.Schema({
+    var schema = mongoose.Schema(
+    {
         nome : 
         {
             type: String,
             required: true,
             index: { unique: true }
-        },
-        qtdGravacoes : 
-        {
-            type: Number,
-            required: true
         },
         rotulos :
         {
@@ -23,11 +19,10 @@ module.exports = function()
         {
             type: String
         },
-        dirBiblioteca : 
+        data : 
         {
-            type: String,
-            required: true
+            type: Date,
         }   
-        });
-    return mongoose.model('BibliotecaVoz', schema);
+    });
+    return mongoose.model('BibliotecaVoz', schema, 'bibliotecas');
 }

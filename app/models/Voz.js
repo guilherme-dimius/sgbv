@@ -6,14 +6,14 @@ module.exports = function()
         rotulo : 
         {
             type: String,
-            required: true,
+            required: true
         },
         nomeArquivo : 
         {
             type: String,
             required: true,
             index: { unique: true }
-        },
+        }
     });
-    return mongoose.model('Voz', schema);
+    return mongoose.model('Voz', schema, 'vozes');
 }

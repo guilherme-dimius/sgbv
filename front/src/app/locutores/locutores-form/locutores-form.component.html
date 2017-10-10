@@ -1,43 +1,53 @@
 <h2>{{title}}</h2>
+
 <form>
+  
   <div class="form-group">
     <label for="email">E-mail</label>
-    <input type="text" id="email" />
+    <input type="text" id="email" 
+    [(ngModel)]="model.email" class="form-control" />
   </div>
 
   <div class="form-group">
     <label for="nome">Nome</label>
-    <input type="text" id="nome" />
+    <input type="text" id="nome" 
+    [(ngModel)]="model.nome" class="form-control" />
   </div>
   
   <div class="form-group">
     <label for="cidade">Cidade</label>
-    <input type="text" id="cidade" />
+    <input type="text" id="cidade" 
+    [(ngModel)]="model.cidade" class="form-control" />
   </div>
   
   <div class="form-group">
     <label for="estado">Estado</label>
-    <input type="text" id="estado" />
+    <input type="text" id="estado" 
+    [(ngModel)]="model.estado" class="form-control" />
   </div>
   
   <div class="form-group">
     <label for="sotaque">Sotaque</label>
-    <input type="text" id="sotaque" />
+    <input type="text" id="sotaque" 
+    [(ngModel)]="model.sotaque" class="form-control" />
   </div>
   
   <div class="form-group">
     <label for="genero">Gênero</label>
-    <input type="text" id="genero" />
+    <input type="text" id="genero" 
+    [(ngModel)]="model.genero" class="form-control" />
   </div>
   
   <div class="form-group">
     <label for="problemaFala">Problema fala</label>
-    <input type="text" id="problemaFala" />
+    <input type="text" id="problemaFala" 
+    [(ngModel)]="model.problemaFala" class="form-control" />
   </div>
   
   <div class="form-group">
     <label for="idade">Idade</label>
-    <input type="number" id="idade" />
+    <input type="number" id="idade" 
+    [(ngModel)]="model.idade" class="form-control" />
   </div>
   
   <div class="form-group">

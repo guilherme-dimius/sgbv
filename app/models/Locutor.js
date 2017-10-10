@@ -44,5 +44,5 @@ module.exports = function()
         },
    });
 
-   return mongoose.model('Locutor', schema);
+   return mongoose.model('Locutor', schema, 'locutores');
 }

@@ -1,0 +1,14 @@
+<h2>{{titulo}}</h2>
+
+<table class="table table-striped">
+  <tr>
+    <th>Nome</th>
+    <th>Data</th>
+    <th>Bibliotecas voz</th>
+  </tr>
+  <tr *ngFor="let projeto of projetos">
+    <td>{{projeto.nome}}</td>
+    <td>{{projeto.data}}</td>
+    <td>{{projeto.bibliotecasVoz}}</td>
+  </tr>
+</table>

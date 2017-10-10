@@ -2,17 +2,17 @@
   "name": "sgbv",
   "version": "1.0.0",
   "description": "Sistema de Gerenciamento de Bibliotecas de Voz",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/guilherme-dimius/sgbv.git"
   },
   "keywords": [
-    "biblioteca de voz", 
+    "biblioteca de voz",
     "sgbv"
   ],
   "author": "Guilherme M. Ferreira <guilhermemalaquiasf@gmail.com>",
@@ -37,7 +37,6 @@
     "ejs": "^2.5.7",
     "es6-shim": "^0.35.3",
     "express": "^4.16.1",
-    "express-load": "^1.1.16",
     "method-override": "^2.3.10",
     "mongodb": "^2.2.31",
     "mongoose": "^4.12.1",
