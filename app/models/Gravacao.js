@@ -3,29 +3,29 @@ var mongoose = require('mongoose');
 module.exports = function() 
 {
     var schema = mongoose.Schema({
-        locutor : 
+        locutores : 
         {
-            type: [mongoose.Schema.Types.ObjectId],
+            type: [mongoose.Schema.ObjectId],
             ref: 'Locutor',
             required: true
         },
-        bibliotecaVoz : 
+        bibliotecas : 
         {
-            type: [mongoose.Schema.Types.ObjectId],
+            type: [mongoose.Schema.ObjectId],
             ref: 'Biblioteca',
             required: true
         },
-        gravacoesVoz :
-        {
-            type: [mongoose.Schema.Types.ObjectId],
-            ref: 'Voz',
-            required: true
-        },
-        dirGravacao : 
+        rotulo : 
         {
             type: String,
             required: true
-        },        
+        },
+        codificacao :
+        {
+            type: mongoose.Schema.ObjectId,
+            ref: 'Codificacao',
+            required: true
+        }       
     });
-    return mongoose.model('GravacaoVoz', schema, 'gravacoes');
+    return mongoose.model('Gravacao', schema, 'gravacoes');
 }

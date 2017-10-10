@@ -8,13 +8,17 @@ import { RoutingModule } from './app.router'
 import { AppComponent } from './app.component';
 
 import { MenuComponent } from './nav/menu/menu.component';
+
 import { LocutoresListaComponent } from './locutores/locutores-lista/locutores-lista.component';
 import { LocutoresFormComponent } from './locutores/locutores-form/locutores-form.component';
-
 import { BibliotecasListaComponent } from './bibliotecas/bibliotecas-lista/bibliotecas-lista.component';
 import { BibliotecasFormComponent } from './bibliotecas/bibliotecas-form/bibliotecas-form.component';
 import { ProjetosFormComponent } from './projetos/projetos-form/projetos-form.component';
 import { ProjetosListaComponent } from './projetos/projetos-lista/projetos-lista.component';
+import { GravacoesFormComponent } from './gravacoes/gravacoes-form/gravacoes-form.component';
+import { GravacoesListaComponent } from './gravacoes/gravacoes-lista/gravacoes-lista.component';
+import { CodificacoesFormComponent } from './codificacoes/codificacoes-form/codificacoes-form.component';
+import { CodificacoesListaComponent } from './codificacoes/codificacoes-lista/codificacoes-lista.component';
 
 
 @NgModule(
@@ -29,7 +33,13 @@ import { ProjetosListaComponent } from './projetos/projetos-lista/projetos-lista
     BibliotecasListaComponent,
     BibliotecasFormComponent,
     ProjetosFormComponent,
-    ProjetosListaComponent
+    ProjetosListaComponent,
+    GravacoesFormComponent,
+    GravacoesListaComponent,
+    CodificacoesFormComponent,
+    CodificacoesListaComponent,
+    CodificacoesFormComponent,
+    CodificacoesListaComponent
   ],
   imports: 
   [

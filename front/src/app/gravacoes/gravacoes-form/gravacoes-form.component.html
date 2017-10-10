@@ -1,0 +1,27 @@
+<h2>{{title}}</h2>
+
+<form>
+	
+  <div class="form-group">
+    <label for="locutores">Locutores</label>
+    <input type="text" id="locutores" name="locutores"
+    [(ngModel)]="model.locutores" class="form-control" />
+  </div>
+
+  <div class="form-group">
+    <label for="bibliotecas">Bibliotecas</label>
+    <input type="text" id="bibliotecas" name="bibliotecas"
+    [(ngModel)]="model.bibliotecas" class="form-control" />
+  </div>
+  
+  <div class="form-group">
+    <label for="codificacao">Codificação</label>
+    <input type="text" id="codificacao" name="codificacao" 
+    [(ngModel)]="model.codificacao" class="form-control" />
+  </div> 
+  
+  <div class="form-group">
+    <input class="btn btn-primary" type="submit" value="Enviar" />
+  </div>
+
+</form>

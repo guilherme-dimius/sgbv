@@ -9,6 +9,12 @@ import { BibliotecasFormComponent } from './bibliotecas/bibliotecas-form/bibliot
 import { ProjetosListaComponent } from './projetos/projetos-lista/projetos-lista.component';
 import { ProjetosFormComponent } from './projetos/projetos-form/projetos-form.component';
 
+import { GravacoesListaComponent } from './gravacoes/gravacoes-lista/gravacoes-lista.component';
+import { GravacoesFormComponent } from './gravacoes/gravacoes-form/gravacoes-form.component';
+
+import { CodificacoesListaComponent } from './codificacoes/codificacoes-lista/codificacoes-lista.component';
+import { CodificacoesFormComponent } from './codificacoes/codificacoes-form/codificacoes-form.component';
+
 const routes : Routes = 
 [
    {
@@ -31,7 +37,6 @@ const routes : Routes =
       path: 'bibliotecas/nova',
       component: BibliotecasFormComponent
    },
-
    {
       path: 'projetos',
       component: ProjetosListaComponent
@@ -39,8 +44,23 @@ const routes : Routes =
    {
       path: 'projetos/novo',
       component: ProjetosFormComponent
+   },
+   {
+      path: 'gravacoes',
+      component: GravacoesListaComponent
+   },
+   {
+      path: 'gravacoes/nova',
+      component: GravacoesFormComponent
+   },
+   {
+    path: 'codificacoes',
+    component: CodificacoesListaComponent
+   },
+   {
+    path: 'codificacoes/nova',
+    component: CodificacoesFormComponent
    }
-
 ]
 
 export const RoutingModule = RouterModule.forRoot(routes)

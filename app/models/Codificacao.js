@@ -3,17 +3,16 @@ var mongoose = require('mongoose');
 module.exports = function() 
 {
     var schema = mongoose.Schema({
-        rotulo : 
-        {
-            type: String,
-            required: true
-        },
-        nomeArquivo : 
+        tipoCodificacao : 
         {
             type: String,
             required: true,
             index: { unique: true }
+        },
+        taxa : 
+        {
+            type: String
         }
     });
-    return mongoose.model('Voz', schema, 'vozes');
+    return mongoose.model('Codificacao', schema, 'codificacoes');
 }

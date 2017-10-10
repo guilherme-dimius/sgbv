@@ -24,5 +24,5 @@ module.exports = function()
             type: Date,
         }   
     });
-    return mongoose.model('BibliotecaVoz', schema, 'bibliotecas');
+    return mongoose.model('Biblioteca', schema, 'bibliotecas');
 }
