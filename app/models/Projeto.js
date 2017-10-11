@@ -12,8 +12,7 @@ module.exports = function()
       },
       data :
       {
-          type: Date,
-          required: true
+          type: Date
       },
       bibliotecasVoz : 
       {

@@ -1,23 +1,28 @@
 <h2>{{title}}</h2>
 
 <form>
+
+
 	
   <div class="form-group">
-    <label for="locutores">Locutores</label>
-    <input type="text" id="locutores" name="locutores"
-    [(ngModel)]="model.locutores" class="form-control" />
+    <label for="locutores">Locutor</label>
+    <select id="locutores" name="locutores" class="form-control"
+    [(ngModel)]="model.locutores">
+    </select>
   </div>
 
   <div class="form-group">
-    <label for="bibliotecas">Bibliotecas</label>
-    <input type="text" id="bibliotecas" name="bibliotecas"
-    [(ngModel)]="model.bibliotecas" class="form-control" />
+    <label for="bibliotecas">Biblioteca</label>
+    <select id="bibliotecas" name="bibliotecas" class="form-control"
+    [(ngModel)]="model.bibliotecas">
+  </select>
   </div>
   
   <div class="form-group">
     <label for="codificacao">Codificação</label>
-    <input type="text" id="codificacao" name="codificacao" 
-    [(ngModel)]="model.codificacao" class="form-control" />
+    <select id="codificacao" name="codificacao" class="form-control"
+    [(ngModel)]="model.codificacao">
+  </select>
   </div> 
   
   <div class="form-group">

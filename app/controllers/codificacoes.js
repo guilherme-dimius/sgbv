@@ -6,7 +6,7 @@ module.exports = function(app)
    // Retorna todos as codificações de voz cadastradas
    controller.listar = function(req, res) 
    {
-      Cofificacao.find().exec().then(
+      Codificacao.find().exec().then(
          function(codificacoes) 
          {// Callback se der certo
             res.json(codificacoes);
@@ -41,7 +41,7 @@ module.exports = function(app)
 
    controller.excluir = function(req, res) 
    {
-      var idCofificacao = req.params.id;
+      var idCodificacao = req.params.id;
 
       // Filtra o vetor 'codificacao', gerando o vetor 'remanescentes'
       // sem o coficicação excluído

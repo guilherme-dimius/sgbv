@@ -3,15 +3,15 @@ var mongoose = require('mongoose');
 module.exports = function() 
 {
     var schema = mongoose.Schema({
-        locutores : 
+        locutor : 
         {
-            type: [mongoose.Schema.ObjectId],
+            type: mongoose.Schema.ObjectId,
             ref: 'Locutor',
             required: true
         },
-        bibliotecas : 
+        biblioteca : 
         {
-            type: [mongoose.Schema.ObjectId],
+            type: mongoose.Schema.ObjectId,
             ref: 'Biblioteca',
             required: true
         },
@@ -24,7 +24,6 @@ module.exports = function()
         {
             type: mongoose.Schema.ObjectId,
             ref: 'Codificacao',
-            required: true
         }       
     });
     return mongoose.model('Gravacao', schema, 'gravacoes');

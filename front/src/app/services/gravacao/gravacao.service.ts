@@ -18,6 +18,6 @@ export class GravacaoService
 
   public listarTodos() 
   {
-    return this.http.get('http://localhost:3000/gravaoes');
+    return this.http.get('http://localhost:3000/gravacoes');
   } 
 }
