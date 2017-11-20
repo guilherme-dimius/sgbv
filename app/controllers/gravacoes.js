@@ -6,7 +6,10 @@ module.exports = function(app)
    // Retorna todos as bibliotecas de voz cadastradas
    controller.listar = function(req, res) 
    {
-      Gravacao.find().exec().then(
+      Gravacao.find().populate('locutor').
+      populate('biblioteca').
+      populate('codificacao').
+      exec().then(
          function(gravacoes) 
          {// Callback se der certo
             res.json(gravacoes);

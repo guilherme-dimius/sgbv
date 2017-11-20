@@ -8,9 +8,9 @@
     <th>Codificação</th>
   </tr>
   <tr *ngFor="let gravacao of gravacoes">
-    <td>{{gravacao.locutor}}</td>
-    <td>{{gravacao.biblioteca}}</td>
+    <td>{{gravacao.locutor.nome}}</td>
+    <td>{{gravacao.biblioteca.nome}}</td>
     <td>{{gravacao.rotulo}}</td>
-    <td>{{gravacao.codificacao}}</td>
+    <td>{{gravacao.codificacao.tipoCodificacao}}</td>
   </tr>
 </table>
