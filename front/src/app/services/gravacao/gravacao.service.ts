@@ -19,5 +19,30 @@ export class GravacaoService
   public listarTodos() 
   {
     return this.http.get('http://localhost:3000/gravacoes');
-  } 
+  }
+
+      public obterPorId(id: string) 
+    {
+      return this.http.get('http://localhost:3000/gravacoes/' + id)
+    }
+
+  public salvar(g: Gravacao) 
+  {
+    // Atualiza objeto já existente
+    if(g._id) 
+    {
+      return this.http.post('http://localhost:3000/gravacoes', g)
+    }
+    // Inserção de novo objeto
+    else 
+    {
+      return this.http.put('http://localhost:3000/gravacoes', g)
+    }
+  }
+
+  public excluir(id: string) 
+  {
+    return this.http.delete('http://localhost:3000/gravacoes/' + id)
+  }
+
 }

@@ -15,7 +15,22 @@ export class CodificacoesListaComponent implements OnInit
   
   constructor(private service: CodificacaoService) 
   { 
-    this.service.listarTodos().subscribe((dados : Response) => this.codificacoes = dados)
+    this.atualizarLista()   
+  }
+
+  atualizarLista() 
+  {
+    this.service.listarTodos().subscribe((dados: Response) => this.codificacoes = dados)
+  }
+
+  excluir(id: string) 
+  {
+    if(confirm('Deseja realmente excluir esta codificação?')) 
+    {
+      this.service.excluir(id).subscribe(
+        () => this.atualizarLista()
+      )
+    }
   }
 
   ngOnInit() { }

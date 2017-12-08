@@ -3,7 +3,7 @@ module.exports = function(app)
    var controller = {};
    var Gravacao = app.models.Gravacao;
 
-   // Retorna todos as bibliotecas de voz cadastradas
+   // Retorna todos as gravacoes de voz cadastradas
    controller.listar = function(req, res) 
    {
       Gravacao.find().populate('locutor').
@@ -23,7 +23,7 @@ module.exports = function(app)
       );   
    }
 
-   // Retorna um bibliotecaVoz, identificado pelo id
+   // Retorna um gravacoes, identificado pelo id
    controller.obterUm = function(req, res) 
    {
       var idGravacao = req.params.id;
@@ -46,25 +46,52 @@ module.exports = function(app)
    {
       var idGravacao = req.params.id;
 
-      // Filtra o vetor 'bibliotecaVoz', gerando o vetor 'remanescentes'
-      // sem o bibliotecaVoz excluído
-      var remanescentes = gravacoes.filter(function(grav) 
-      {
-         return grav._id != idGravacao;
-      });
-
-      // Caso tenha havido exclusão, o vetor 'remanescentes'
-      // será menor que o vetor 'bibliotecasVoz'
-      if(remanescentes.length < gravacoes.length) 
-      {
-         gravacoes = remanescentes;
-         res.status(200).send('Gravação de voz excluída');
-      }
-      else 
-      {
-         res.status(404).send('Gravacao de voz não encontrada para exclusão');
-      }
+      Codificacao.remove({_id: idCodificacao}).exec().then(
+         function() 
+         {
+            res.status(203).end();
+         },
+         function(erro) 
+         {
+            console.log(erro);
+         }
+      );
    }
+
+   controller.novo = function(req, res) 
+   {
+      Gravacao.create(req.body).then(
+         function(gravacao) 
+         {
+            // HTTP 201: criado            
+            res.status(201).json(gravacao);
+         },
+         function(erro) {
+            console.error(erro);
+            // HTTP 500: erro interno do servidor
+            res.status(500).json(erro);
+         }
+      )
+   }
+
+   controller.atualizar = function(req, res) 
+   {
+      var idGravacao = req.body._id;
+
+      Gravacao.findByIdAndUpdate(idGravacao, req.body).then(
+         function(gravacao) 
+         {
+            res.status(200).json(gravacao);
+         },
+         function(erro) 
+         {
+            console.error(erro);
+            res.status(404).json('Gravação não encontrado para atualizar');
+         }
+      )
+   }
+
+
 
    return controller;
 

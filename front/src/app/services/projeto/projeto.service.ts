@@ -18,5 +18,29 @@ export class ProjetoService
   public listarTodos() 
   {
     return this.http.get('http://localhost:3000/projetos');
-  } 
+  }
+
+  public obterPorId(id: string) 
+  {
+    return this.http.get('http://localhost:3000/projetos/' + id)
+  }
+
+  public salvar(p: Projeto) 
+  {
+    // Atualiza objeto já existente
+    if(p._id) 
+    {
+      return this.http.post('http://localhost:3000/projetos', p)
+    }
+    // Inserção de novo objeto
+    else 
+    {
+      return this.http.put('http://localhost:3000/projetos', p)
+    }
+  }
+
+  public excluir(id: string) 
+  {
+    return this.http.delete('http://localhost:3000/projetos/' + id)
+  }
 }

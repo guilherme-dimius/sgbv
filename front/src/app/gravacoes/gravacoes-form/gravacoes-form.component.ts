@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router'
 
 import { GravacaoService, Gravacao } from '../../services/gravacao/gravacao.service'
 import { LocutorService, Locutor } from '../../services/locutor/locutor.service'
@@ -30,6 +31,8 @@ export class GravacoesFormComponent implements OnInit
     private ls : LocutorService,
     private bs : BibliotecaService,
     private cs : CodificacaoService,
+    private router: Router,
+    private aRoute: ActivatedRoute
   ) { }
 
   ngOnInit() 
@@ -38,5 +41,32 @@ export class GravacoesFormComponent implements OnInit
     this.locutores = this.ls.listarTodos()
     this.bibliotecas = this.bs.listarTodos()
     this.codificacoes = this.cs.listarTodos()
+
+    this.aRoute.params.subscribe(
+      // Se existir um parâmetro id, significa que queremos editar um objeto já exisente
+      params => 
+      {
+        if(params['id']) 
+        {
+          // Buscamos o objeto para edição
+          this.gs.obterPorId(params['id']).subscribe(
+            (existente: Gravacao) => this.model = existente
+          )
+        }
+      }
+    )  
   }
+
+  enviar()
+  {
+    // Preservando o roteador para evitar que a referência ao objeto se perca
+    let roteador = this.router
+
+    this.gs.salvar(this.model).subscribe(
+      // Após a inserção ou atualização de um objeto, retorna à página de listagem
+      () => roteador.navigate(['/gravacoes']),
+      erro => console.error(erro)
+    )
+  }
+
 }

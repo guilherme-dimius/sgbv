@@ -20,4 +20,29 @@ export class BibliotecaService
   	{
     	return this.http.get('http://localhost:3000/bibliotecas');
   	}
+
+    public obterPorId(id: string) 
+    {
+      return this.http.get('http://localhost:3000/bibliotecas/' + id)
+    }
+
+  public salvar(b: Biblioteca) 
+  {
+    // Atualiza objeto já existente
+    if(b._id) 
+    {
+      return this.http.post('http://localhost:3000/bibliotecas', b)
+    }
+    // Inserção de novo objeto
+    else 
+    {
+      return this.http.put('http://localhost:3000/bibliotecas', b)
+    }
+  }
+
+  public excluir(id: string) 
+  {
+    return this.http.delete('http://localhost:3000/bibliotecas/' + id)
+  }
+
 }

@@ -14,7 +14,22 @@ export class LocutoresListaComponent implements OnInit
   
   constructor(private service: LocutorService) 
   { 
-    this.service.listarTodos().subscribe((dados : Response) => this.locutores = dados)
+    this.atualizarLista()   
+  }
+
+  atualizarLista() 
+  {
+    this.service.listarTodos().subscribe((dados: Response) => this.locutores = dados)
+  }
+
+  excluir(id: string) 
+  {
+    if(confirm('Deseja realmente excluir este locutor?')) 
+    {
+      this.service.excluir(id).subscribe(
+        () => this.atualizarLista()
+      )
+    }
   }
 
   ngOnInit() { }

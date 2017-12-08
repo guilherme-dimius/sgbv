@@ -43,26 +43,52 @@ module.exports = function(app)
    {
       var idLocutor = req.params.id;
 
-      // Filtra o vetor 'locutor', gerando o vetor 'remanescentes'
-      // sem o locutor excluído
-      var remanescentes = locutores.filter(function(loc) 
-      {
-         return loc._id != idLocutor;
-      });
-
-      // Caso tenha havido exclusão, o vetor 'remanescentes'
-      // será menor que o vetor 'locutores'
-      if(remanescentes.length < locutores.length) 
-      {
-         locutores = remanescentes;
-         res.status(200).send('Locutor excluído');
-      }
-      else 
-      {
-         res.status(404).send('Locutor não encontrado para exclusão');
-      }
-
+      Locutor.remove({_id: idLocutor}).exec().then(
+         function() 
+         {
+            res.status(203).end();
+         },
+         function(erro) 
+         {
+            console.log(erro);
+         }
+      );
    }
+
+   controller.novo = function(req, res) 
+   {
+      Locutor.create(req.body).then(
+         function(locutor) 
+         {
+            // HTTP 201: criado            
+            res.status(201).json(locutor);
+         },
+         function(erro) {
+            console.error(erro);
+            // HTTP 500: erro interno do servidor
+            res.status(500).json(erro);
+         }
+      )
+   }
+
+   controller.atualizar = function(req, res) 
+   {
+      var idLocutor = req.body._id;
+
+      Locutor.findByIdAndUpdate(idLocutor, req.body).then(
+         function(locutor) 
+         {
+            res.status(200).json(locutor);
+         },
+         function(erro) 
+         {
+            console.error(erro);
+            res.status(404).json('Locutor não encontrado para atualizar');
+         }
+      )
+   }
+
+
 
    return controller;
 

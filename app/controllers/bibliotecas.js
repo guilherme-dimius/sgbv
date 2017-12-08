@@ -43,24 +43,49 @@ module.exports = function(app)
    {
       var idBiblioteca = req.params.id;
 
-      // Filtra o vetor 'bibliotecaVoz', gerando o vetor 'remanescentes'
-      // sem o bibliotecaVoz excluído
-      var remanescentes = bibliotecas.filter(function(bib) 
-      {
-         return bib._id != idBiblioteca;
-      });
+      Biblioteca.remove({_id: idBiblioteca}).exec().then(
+         function() 
+         {
+            res.status(203).end();
+         },
+         function(erro) 
+         {
+            console.log(erro);
+         }
+      );
+   }
 
-      // Caso tenha havido exclusão, o vetor 'remanescentes'
-      // será menor que o vetor 'bibliotecasVoz'
-      if(remanescentes.length < bibliotecas.length) 
-      {
-         bibliotecas = remanescentes;
-         res.status(200).send('Biblioteca de voz excluída');
-      }
-      else 
-      {
-         res.status(404).send('Biblioteca de voz não encontrada para exclusão');
-      }
+   controller.novo = function(req, res) 
+   {
+      Biblioteca.create(req.body).then(
+         function(biblioteca) 
+         {
+            // HTTP 201: criado            
+            res.status(201).json(biblioteca);
+         },
+         function(erro) {
+            console.error(erro);
+            // HTTP 500: erro interno do servidor
+            res.status(500).json(erro);
+         }
+      )
+   }
+
+   controller.atualizar = function(req, res) 
+   {
+      var idBiblioteca = req.body._id;
+
+      Biblioteca.findByIdAndUpdate(idBiblioteca, req.body).then(
+         function(biblioteca) 
+         {
+            res.status(200).json(biblioteca);
+         },
+         function(erro) 
+         {
+            console.error(erro);
+            res.status(404).json('Biblioteca não encontrado para atualizar');
+         }
+      )
    }
 
    return controller;

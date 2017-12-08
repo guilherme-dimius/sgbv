@@ -15,7 +15,22 @@ export class GravacoesListaComponent implements OnInit
   
   constructor(private service: GravacaoService) 
   { 
-    this.service.listarTodos().subscribe(dados => this.gravacoes = dados)
+    this.atualizarLista()   
+  }
+
+  atualizarLista() 
+  {
+    this.service.listarTodos().subscribe((dados: Response) => this.gravacoes = dados)
+  }
+
+  excluir(id: string) 
+  {
+    if(confirm('Deseja realmente excluir esta gravação?')) 
+    {
+      this.service.excluir(id).subscribe(
+        () => this.atualizarLista()
+      )
+    }
   }
 
   ngOnInit() { }

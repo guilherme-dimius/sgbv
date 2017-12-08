@@ -43,25 +43,52 @@ module.exports = function(app)
    {
       var idCodificacao = req.params.id;
 
-      // Filtra o vetor 'codificacao', gerando o vetor 'remanescentes'
-      // sem o coficicação excluído
-      var remanescentes = codificacoes.filter(function(cod) 
-      {
-         return cof._id != idCodificacao;
-      });
-
-      // Caso tenha havido exclusão, o vetor 'remanescentes'
-      // será menor que o vetor 'codificacao'
-      if(remanescentes.length < codificacoes.length) 
-      {
-         codificacoes = remanescentes;
-         res.status(200).send('Codificação de voz excluída');
-      }
-      else 
-      {
-         res.status(404).send('Codificação de voz não encontrada para exclusão');
-      }
+      Codificacao.remove({_id: idCodificacao}).exec().then(
+         function() 
+         {
+            res.status(203).end();
+         },
+         function(erro) 
+         {
+            console.log(erro);
+         }
+      );
    }
+
+   controller.novo = function(req, res) 
+   {
+      Codificacao.create(req.body).then(
+         function(codificacao) 
+         {
+            // HTTP 201: criado            
+            res.status(201).json(codificacao);
+         },
+         function(erro) {
+            console.error(erro);
+            // HTTP 500: erro interno do servidor
+            res.status(500).json(erro);
+         }
+      )
+   }
+
+   controller.atualizar = function(req, res) 
+   {
+      var idCodificacao = req.body._id;
+
+      Codificacao.findByIdAndUpdate(idCodificacao, req.body).then(
+         function(codificacao) 
+         {
+            res.status(200).json(codificacao);
+         },
+         function(erro) 
+         {
+            console.error(erro);
+            res.status(404).json('Codificação não encontrada para atualizar');
+         }
+      )
+   }
+
+
 
    return controller;
 

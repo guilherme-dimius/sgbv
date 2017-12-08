@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjetoService } from '../../services/projeto/projeto.service';
+import * as moment from 'moment'
 
 @Component({
   selector: 'app-projetos-lista',
@@ -15,7 +16,34 @@ export class ProjetosListaComponent implements OnInit
   
   constructor(private service: ProjetoService) 
   { 
-    this.service.listarTodos().subscribe(dados => this.projetos = dados)
+    this.atualizarLista()   
+  }
+
+  atualizarLista() 
+  {
+    this.service.listarTodos().subscribe((dados: Response) => this.projetos = dados)
+  }
+
+  formatarData(data : string) 
+  {
+    if(data)
+    {''
+      return moment(data, 'YYYY-MM-DDThh:mm:ssZ').format('DD/MM/YYYY hh[h]mm');
+    }
+    else 
+    {
+      return '';
+    }
+  }
+
+  excluir(id: string) 
+  {
+    if(confirm('Deseja realmente excluir este projeto?')) 
+    {
+      this.service.excluir(id).subscribe(
+        () => this.atualizarLista()
+      )
+    }
   }
 
   ngOnInit() { }

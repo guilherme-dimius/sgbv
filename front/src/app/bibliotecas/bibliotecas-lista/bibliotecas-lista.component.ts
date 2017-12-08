@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { BibliotecaService } from '../../services/biblioteca/biblioteca.service'
+import * as moment from 'moment'
 
 @Component(
 {
@@ -15,8 +16,36 @@ export class BibliotecasListaComponent implements OnInit
   
   constructor(private service: BibliotecaService) 
   { 
-    this.service.listarTodos().subscribe((dados : Response) => this.bibliotecas = dados)
+    this.atualizarLista()   
   }
+
+  atualizarLista() 
+  {
+    this.service.listarTodos().subscribe((dados: Response) => this.bibliotecas = dados)
+  }
+
+  formatarData(data : string) 
+  {
+    if(data)
+    {''
+      return moment(data, 'YYYY-MM-DDThh:mm:ssZ').format('DD/MM/YYYY hh[h]mm');
+    }
+    else 
+    {
+      return '';
+    }
+  }
+
+  excluir(id: string) 
+  {
+    if(confirm('Deseja realmente excluir esta biblioteca?')) 
+    {
+      this.service.excluir(id).subscribe(
+        () => this.atualizarLista()
+      )
+    }
+  }
+
 
   ngOnInit() { }
 }

@@ -21,6 +21,7 @@ const routes : Routes =
       path: '',
       component: LocutoresListaComponent
    },
+
    {
       path: 'locutores',
       component: LocutoresListaComponent
@@ -30,6 +31,11 @@ const routes : Routes =
       component: LocutoresFormComponent
    },
    {
+      path: 'locutores/:id',
+      component: LocutoresFormComponent
+   },
+
+   {
       path: 'bibliotecas',
       component: BibliotecasListaComponent
    },
@@ -37,6 +43,11 @@ const routes : Routes =
       path: 'bibliotecas/nova',
       component: BibliotecasFormComponent
    },
+   {
+      path: 'bibliotecas/:id',
+      component: BibliotecasFormComponent
+   },
+
    {
       path: 'projetos',
       component: ProjetosListaComponent
@@ -46,6 +57,12 @@ const routes : Routes =
       component: ProjetosFormComponent
    },
    {
+      path: 'projetos/:id',
+      component: ProjetosFormComponent
+   },
+
+
+   {
       path: 'gravacoes',
       component: GravacoesListaComponent
    },
@@ -54,12 +71,22 @@ const routes : Routes =
       component: GravacoesFormComponent
    },
    {
+      path: 'gravacoes/:id',
+      component: GravacoesFormComponent
+   },
+
+
+   {
     path: 'codificacoes',
     component: CodificacoesListaComponent
    },
    {
     path: 'codificacoes/nova',
     component: CodificacoesFormComponent
+   },
+   {
+      path: 'codificacoes/:id',
+      component: CodificacoesFormComponent
    }
 ]
 

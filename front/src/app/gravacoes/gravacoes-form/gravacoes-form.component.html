@@ -1,29 +1,33 @@
 <h2>{{title}}</h2>
 
-<form>
-
-
+<form #gravacaoForm="ngForm" (submit)="enviar()">
 	
   <div class="form-group">
-    <label for="locutores">Locutor</label>
-    <select id="locutores" name="locutores" class="form-control"
-    [(ngModel)]="model.locutores">
+    <label for="locutor">Locutor</label>
+    <select id="locutor" name="locutor" class="form-control" [(ngModel)]="model.locutor">
+      <option value="">(Selecione)</option>
+      <option *ngFor="let loc of locutores | async"
+        [ngValue]="loc._id">{{loc.nome}}</option>
     </select>
   </div>
 
   <div class="form-group">
-    <label for="bibliotecas">Biblioteca</label>
-    <select id="bibliotecas" name="bibliotecas" class="form-control"
-    [(ngModel)]="model.bibliotecas">
-  </select>
+    <label for="biblioteca">Biblioteca</label>
+    <select id="biblioteca" name="biblioteca" class="form-control" [(ngModel)]="model.biblioteca">
+      <option value="">(Selecione)</option>
+      <option *ngFor="let bib of bibliotecas | async"
+        [ngValue]="bib._id">{{bib.nome}}</option>
+    </select>
   </div>
-  
+
   <div class="form-group">
     <label for="codificacao">Codificação</label>
-    <select id="codificacao" name="codificacao" class="form-control"
-    [(ngModel)]="model.codificacao">
-  </select>
-  </div> 
+    <select id="codificacao" name="codificacao" class="form-control" [(ngModel)]="model.codificacao">
+      <option value="">(Selecione)</option>
+      <option *ngFor="let cod of codificacoes | async"
+        [ngValue]="cod._id">{{cod.tipoCodificacao}}</option>
+    </select>
+  </div>
   
   <div class="form-group">
     <input class="btn btn-primary" type="submit" value="Enviar" />
