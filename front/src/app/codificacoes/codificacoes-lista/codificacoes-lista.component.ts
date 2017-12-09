@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { CodificacaoService } from '../../services/codificacao/codificacao.service'
+import * as moment from 'moment'
 
 @Component(
 {

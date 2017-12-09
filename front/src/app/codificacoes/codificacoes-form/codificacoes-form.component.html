@@ -1,11 +1,11 @@
 <h2>{{title}}</h2>
 
-<form>
+<form #codificacaoForm="ngForm" (submit)="enviar()">
 	
   <div class="form-group">
-    <label for="codificacao">Tipo codificação</label>
-    <input type="text" id="codificacao" name="codificacao"
-    [(ngModel)]="model.codificacao" class="form-control" />
+    <label for="tipocodificacao">Tipo codificação</label>
+    <input type="text" id="tipoCodificacao" name="tipocodificacao"
+    [(ngModel)]="model.tipoCodificacao" class="form-control" />
   </div>
 
   <div class="form-group">
@@ -14,7 +14,7 @@
     [(ngModel)]="model.taxa" class="form-control" />
   </div>
    
-  <div class="form-group">
+  <div class="text-center">
     <input class="btn btn-primary" type="submit" value="Enviar" />
   </div>
 

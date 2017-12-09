@@ -1,3 +1,7 @@
+<a [routerLink]="['/codificacoes/nova']" class="btn btn-primary btn-md">
+  Novo tipo de codificação
+</a>
+
 <h3>{{title}}</h3>
 
 <table class="table table-striped">
@@ -6,7 +10,12 @@
     <th>Taxa bits</th>
   </tr>
   <tr *ngFor="let codificacao of codificacoes">
-    <td>{{codificacao.tipoCodificacao}}</td>
+  	<td><a [routerLink]="['/codificacoes', codificacao._id]">{{codificacao.tipoCodificacao}}</a></td>
     <td>{{codificacao.taxa}}</td>
+    <td>
+      <button class="btn btn-danger" (click)="excluir(codificacao._id)">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </td>
   </tr>
 </table>

@@ -14,15 +14,15 @@ export class CodificacaoService
 {
 	constructor(private http: HttpClient) { }
 
-  	public listarTodos() 
-  	{
-    	return this.http.get('http://localhost:3000/codificacoes');
-  	}
+	public listarTodos() 
+	{
+  	return this.http.get('http://localhost:3000/codificacoes');
+	}
 
-  	public obterPorId(id: string) 
-    {
-      return this.http.get('http://localhost:3000/codificacoes/' + id)
-    }
+	public obterPorId(id: string) 
+  {
+    return this.http.get('http://localhost:3000/codificacoes/' + id)
+  }
 
   public salvar(c: Codificacao) 
   {

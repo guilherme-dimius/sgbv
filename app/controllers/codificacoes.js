@@ -39,22 +39,6 @@ module.exports = function(app)
       );
    }
 
-   controller.excluir = function(req, res) 
-   {
-      var idCodificacao = req.params.id;
-
-      Codificacao.remove({_id: idCodificacao}).exec().then(
-         function() 
-         {
-            res.status(203).end();
-         },
-         function(erro) 
-         {
-            console.log(erro);
-         }
-      );
-   }
-
    controller.novo = function(req, res) 
    {
       Codificacao.create(req.body).then(
@@ -86,6 +70,23 @@ module.exports = function(app)
             res.status(404).json('Codificação não encontrada para atualizar');
          }
       )
+   }
+
+
+   controller.excluir = function(req, res) 
+   {
+      var idCodificacao = req.params.id;
+
+      Codificacao.remove({_id: idCodificacao}).exec().then(
+         function() 
+         {
+            res.status(203).end();
+         },
+         function(erro) 
+         {
+            console.log(erro);
+         }
+      );
    }
 
 

@@ -8,9 +8,16 @@
     <th>Data</th>
   </tr>
   <tr *ngFor="let bib of bibliotecas">
-    <td>{{bib.nome}}</td>
+    <td><a [routerLink]="['/bibliotecas', biblioteca._id]">{{bib.nome}}</a></td>
     <td>{{bib.rotulos}}</td>
     <td>{{bib.observacoes}}</td>
     <td>{{bib.data}}</td>
+    <td>
+      <button class="btn btn-danger" (click)="excluir(biblioteca._id)">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </td>
   </tr>
 </table>
+
+

@@ -1,9 +1,9 @@
 <h3>{{title}}</h3>
 
 <table class="table table-striped">
-  <tr>
+  <tr>    
+    <th>Nome</th>
     <th>E-mail</th>
-    <th>Nome locutor</th>
     <th>Cidade</th>
     <th>Estado</th>
     <th>Sotaque</th>
@@ -12,13 +12,19 @@
     <th>Idade</th>
   </tr>
   <tr *ngFor="let locutor of locutores">
-    <td>{{locutor.email}}</td>
+    <td><a [routerLink]="['/locutores', locutor._id]">{{locutor.nome}}</a></td>
     <td>{{locutor.nome}}</td>
+    <td>{{locutor.email}}</td>
     <td>{{locutor.cidade}}</td>
     <td>{{locutor.estado}}</td>
     <td>{{locutor.sotaque}}</td>
     <td>{{locutor.genero}}</td>
     <td>{{locutor.problemaFala}}</td>
     <td>{{locutor.idade}}</td>
+    <td>
+      <button class="btn btn-danger" (click)="excluir(locutor._id)">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </td>
   </tr>
 </table>

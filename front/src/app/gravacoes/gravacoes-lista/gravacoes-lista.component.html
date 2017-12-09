@@ -8,9 +8,14 @@
     <th>Codificação</th>
   </tr>
   <tr *ngFor="let gravacao of gravacoes">
-    <td>{{gravacao.locutor.nome}}</td>
+    <td><a [routerLink]="['/gravacoes', gravacao._id]">{{gravacao.locutor.nome}}</a></td>
     <td>{{gravacao.biblioteca.nome}}</td>
     <td>{{gravacao.rotulo}}</td>
     <td>{{gravacao.codificacao.tipoCodificacao}}</td>
+    <td>
+      <button class="btn btn-danger" (click)="excluir(gravacao._id)">
+        <span class="glyphicon glyphicon-trash"></span>
+      </button>
+    </td>
   </tr>
 </table>
