@@ -27,18 +27,20 @@ import { CodificacoesListaComponent } from './codificacoes/codificacoes-lista/co
   declarations: 
   [
     AppComponent,
-    LocutoresListaComponent,
     MenuComponent,
+    
+    LocutoresListaComponent,    
     LocutoresFormComponent,
 
     BibliotecasListaComponent,
     BibliotecasFormComponent,
+
     ProjetosFormComponent,
     ProjetosListaComponent,
+
     GravacoesFormComponent,
     GravacoesListaComponent,
-    CodificacoesFormComponent,
-    CodificacoesListaComponent,
+
     CodificacoesFormComponent,
     CodificacoesListaComponent
   ],

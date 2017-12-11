@@ -14,9 +14,9 @@ module.exports = function()
       {
           type: Date
       },
-      bibliotecasVoz : 
+      biblioteca : 
       {
-          type: [mongoose.Schema.ObjectId],
+          type: mongoose.Schema.ObjectId,
           ref: 'Biblioteca',
       }
     });

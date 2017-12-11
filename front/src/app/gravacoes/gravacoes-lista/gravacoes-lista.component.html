@@ -1,16 +1,20 @@
+<a [routerLink]="['/gravacoes/nova']" class="btn btn-primary btn-md">
+  Nova gravação
+</a>
+
 <h2>{{titulo}}</h2>
 
 <table class="table table-striped">
   <tr>
+    <th>Nome gravação</th>
     <th>Locutor</th>
     <th>Biblioteca de voz</th>
-    <th>Rótulo</th>
     <th>Codificação</th>
   </tr>
   <tr *ngFor="let gravacao of gravacoes">
-    <td><a [routerLink]="['/gravacoes', gravacao._id]">{{gravacao.locutor.nome}}</a></td>
+    <td><a [routerLink]="['/gravacoes', gravacao._id]">{{gravacao.nome}}</a></td>
+    <td>{{gravacao.locutor.nome}}</td>
     <td>{{gravacao.biblioteca.nome}}</td>
-    <td>{{gravacao.rotulo}}</td>
     <td>{{gravacao.codificacao.tipoCodificacao}}</td>
     <td>
       <button class="btn btn-danger" (click)="excluir(gravacao._id)">

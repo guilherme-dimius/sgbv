@@ -3,6 +3,12 @@ var mongoose = require('mongoose');
 module.exports = function() 
 {
     var schema = mongoose.Schema({
+        nome : 
+        {
+            type: String,
+            required: true,
+            index: { unique: true }
+        },
         locutor : 
         {
             type: mongoose.Schema.ObjectId,
@@ -13,11 +19,6 @@ module.exports = function()
         {
             type: mongoose.Schema.ObjectId,
             ref: 'Biblioteca',
-            required: true
-        },
-        rotulo : 
-        {
-            type: String,
             required: true
         },
         codificacao :

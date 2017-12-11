@@ -12,7 +12,7 @@ module.exports = function()
         },
         rotulos :
         {
-            type: [String],
+            type: String,
             required: true
         },
         observacoes : 

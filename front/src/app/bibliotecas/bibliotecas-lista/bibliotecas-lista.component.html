@@ -1,3 +1,7 @@
+<a [routerLink]="['/bibliotecas/nova']" class="btn btn-primary btn-md">
+  Nova biblioteca
+</a>
+
 <h3>{{title}}</h3>
 
 <table class="table table-striped">
@@ -7,11 +11,11 @@
     <th>Observações</th>
     <th>Data</th>
   </tr>
-  <tr *ngFor="let bib of bibliotecas">
-    <td><a [routerLink]="['/bibliotecas', biblioteca._id]">{{bib.nome}}</a></td>
-    <td>{{bib.rotulos}}</td>
-    <td>{{bib.observacoes}}</td>
-    <td>{{bib.data}}</td>
+  <tr *ngFor="let biblioteca of bibliotecas">
+    <td><a [routerLink]="['/bibliotecas', biblioteca._id]">{{biblioteca.nome}}</a></td>
+    <td>{{biblioteca.rotulos}}</td>
+    <td>{{biblioteca.observacoes}}</td>
+    <td>{{formatarData(biblioteca.data)}}</td>
     <td>
       <button class="btn btn-danger" (click)="excluir(biblioteca._id)">
         <span class="glyphicon glyphicon-trash"></span>

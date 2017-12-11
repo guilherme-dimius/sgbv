@@ -6,8 +6,7 @@ module.exports = function()
         tipoCodificacao : 
         {
             type: String,
-            required: true,
-            index: { unique: true }
+            required: true
         },
         taxa : 
         {

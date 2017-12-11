@@ -9,6 +9,7 @@ import * as moment from 'moment'
   styleUrls: ['./codificacoes-lista.component.css'],
   providers: [ CodificacaoService ]
 })
+
 export class CodificacoesListaComponent implements OnInit 
 {
   private codificacoes : any

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocutorService } from '../../services/locutor/locutor.service'
+import * as moment from 'moment'
 
 @Component({
   selector: 'app-locutores-lista',
@@ -10,8 +11,8 @@ import { LocutorService } from '../../services/locutor/locutor.service'
 export class LocutoresListaComponent implements OnInit 
 {
   private locutores : any
-  private title = 'Lista de Locutores'
   
+  private title = 'Lista de Locutores'
   constructor(private service: LocutorService) 
   { 
     this.atualizarLista()   

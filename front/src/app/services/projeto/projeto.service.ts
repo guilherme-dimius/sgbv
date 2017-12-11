@@ -7,7 +7,7 @@ export class Projeto
   public _id: string;
   public nome: string;
   public data: Date;
-  public bibliotecasVoz: [string];
+  public biblioteca: string;
 }
 
 @Injectable()

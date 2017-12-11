@@ -16,24 +16,12 @@ export class ProjetosListaComponent implements OnInit
   
   constructor(private service: ProjetoService) 
   { 
-    this.atualizarLista()   
+    this.atualizarLista()
   }
 
   atualizarLista() 
   {
     this.service.listarTodos().subscribe((dados: Response) => this.projetos = dados)
-  }
-
-  formatarData(data : string) 
-  {
-    if(data)
-    {''
-      return moment(data, 'YYYY-MM-DDThh:mm:ssZ').format('DD/MM/YYYY hh[h]mm');
-    }
-    else 
-    {
-      return '';
-    }
   }
 
   excluir(id: string) 

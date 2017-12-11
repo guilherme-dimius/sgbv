@@ -5,10 +5,10 @@ import { HttpClient } from '@angular/common/http';
 export class Gravacao 
 {
   public _id: string;
-  public locutores: [string];
-  public bibliotecas: [string];
-  public rotulo: [string];
-  public codificacao: [string];
+  public locutores: string;
+  public bibliotecas: string;
+  public rotulo: string;
+  public codificacao: string;
 }
 
 @Injectable()

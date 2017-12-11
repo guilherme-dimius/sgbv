@@ -1,3 +1,7 @@
+<a [routerLink]="['/projetos/novo']" class="btn btn-primary btn-md">
+  Novo projeto
+</a>
+
 <h2>{{titulo}}</h2>
 
 <table class="table table-striped">
@@ -9,7 +13,7 @@
   <tr *ngFor="let projeto of projetos">
     <td><a [routerLink]="['/projetos', projeto._id]">{{projeto.nome}}</a></td>
     <td>{{projeto.data}}</td>
-    <td>{{projeto.bibliotecasVoz}}</td>
+    <td>{{projeto.biblioteca.nome}}</td>
     <td>
       <button class="btn btn-danger" (click)="excluir(projeto._id)">
         <span class="glyphicon glyphicon-trash"></span>

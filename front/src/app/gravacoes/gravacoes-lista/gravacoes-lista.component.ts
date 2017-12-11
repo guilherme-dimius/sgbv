@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GravacaoService } from '../../services/gravacao/gravacao.service';
+import * as moment from 'moment'
 
 @Component({
   selector: 'app-gravacoes-lista',
@@ -10,9 +11,9 @@ import { GravacaoService } from '../../services/gravacao/gravacao.service';
 
 export class GravacoesListaComponent implements OnInit 
 {
-  private titulo = 'Lista de gravacoes'
   private gravacoes : any
-  
+  private titulo = 'Lista de gravacoes'
+   
   constructor(private service: GravacaoService) 
   { 
     this.atualizarLista()   

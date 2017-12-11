@@ -1,3 +1,7 @@
+<a [routerLink]="['/locutores/novo']" class="btn btn-primary btn-md">
+  Novo locutor
+</a>
+
 <h3>{{title}}</h3>
 
 <table class="table table-striped">
@@ -13,7 +17,6 @@
   </tr>
   <tr *ngFor="let locutor of locutores">
     <td><a [routerLink]="['/locutores', locutor._id]">{{locutor.nome}}</a></td>
-    <td>{{locutor.nome}}</td>
     <td>{{locutor.email}}</td>
     <td>{{locutor.cidade}}</td>
     <td>{{locutor.estado}}</td>

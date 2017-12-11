@@ -6,7 +6,10 @@ module.exports = function(app)
    // Retorna todos os locutores cadastrados
    controller.listar = function(req, res) 
    {
-      Projeto.find().exec().then(
+      Projeto.find()
+      .populate('biblioteca')
+      .populate('codificacao')
+      .exec().then(
          function(projetos) 
          {// Callback se der certo
             res.json(projetos);
@@ -87,9 +90,6 @@ module.exports = function(app)
          }
       )
    }
-
-
-
 
    return controller;
 

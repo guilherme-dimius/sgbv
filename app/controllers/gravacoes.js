@@ -6,10 +6,10 @@ module.exports = function(app)
    // Retorna todos as gravacoes de voz cadastradas
    controller.listar = function(req, res) 
    {
-      Gravacao.find().populate('locutor').
-      populate('biblioteca').
-      populate('codificacao').
-      exec().then(
+      Gravacao.find().populate('locutor')
+      .populate('biblioteca')
+      .populate('codificacao')
+      .exec().then(
          function(gravacoes) 
          {// Callback se der certo
             res.json(gravacoes);
@@ -46,7 +46,7 @@ module.exports = function(app)
    {
       var idGravacao = req.params.id;
 
-      Codificacao.remove({_id: idCodificacao}).exec().then(
+      Gravacao.remove({_id: idGravacao}).exec().then(
          function() 
          {
             res.status(203).end();

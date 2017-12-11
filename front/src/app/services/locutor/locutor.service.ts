@@ -10,7 +10,7 @@ export class Locutor
   public cidade: string;
   public estado: string;
   public sotaque: string;
-  public genero: [string];
+  public genero: string;
   public problemaFala: string;
   public idade: Number;
 }
@@ -20,15 +20,15 @@ export class LocutorService
 {
 	constructor(private http: HttpClient) { }
 
-  	public listarTodos() 
-  	{
-    	return this.http.get('http://localhost:3000/locutores');
-  	}
+  public listarTodos() 
+  {
+    return this.http.get('http://localhost:3000/locutores');
+  }
 
-        public obterPorId(id: string) 
-    {
-      return this.http.get('http://localhost:3000/locutores/' + id)
-    }
+  public obterPorId(id: string) 
+  {
+    return this.http.get('http://localhost:3000/locutores/' + id)
+  }
 
   public salvar(l: Locutor) 
   {
